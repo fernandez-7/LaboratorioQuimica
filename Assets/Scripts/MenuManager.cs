@@ -26,7 +26,7 @@ public class MenuManager : MonoBehaviour
     // ─── Botón JUGAR ───────────────────────────────
     public void BotonJugar()
     {
-        StartCoroutine(CargarEscena("Laboratorio_Principal"));
+        StartCoroutine(CargarEscena("SeleccionPersonaje"));
     }
 
     // ─── Botón CRÉDITOS ────────────────────────────
