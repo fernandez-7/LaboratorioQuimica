@@ -3,7 +3,10 @@ guid: d09d0f8add47ec84e8854d24cc3e655a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - prefabNino: {fileID: 366016246074720188, guid: 8c787c69f569fc045b1e58ada5c3b654, type: 3}
+  - prefabNina: {fileID: 1565059248879987166, guid: 707ecb2350ba7804cbba99794a2f0a3a, type: 3}
+  - puntoSpawn: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
