@@ -5,12 +5,17 @@ public class InteraccionJugador : MonoBehaviour
 {
     [Header("Configuración")]
     public float distanciaInteraccion = 2f;
-    public Transform puntoAgarre;
     public Camera camaraPrimeraPersona;
     public Camera camaraTerceraPersona;
+
+    [Header("UI")]
     public Text textoInteraccion;
 
     private GameObject objetoAgarrado = null;
+    private Collider[] collidersAgarrado;
+    private Transform padreOriginal;
+    private Vector3 posicionOriginal;
+    private Quaternion rotacionOriginal;
 
     Camera ObtenerCamaraActiva()
     {
@@ -32,9 +37,6 @@ public class InteraccionJugador : MonoBehaviour
             else
                 Soltar();
         }
-
-        if (objetoAgarrado != null)
-            objetoAgarrado.transform.position = puntoAgarre.position;
     }
 
     void ActualizarIndicador()
@@ -63,6 +65,7 @@ public class InteraccionJugador : MonoBehaviour
                 return;
             }
         }
+
         textoInteraccion.gameObject.SetActive(false);
     }
 
@@ -82,12 +85,18 @@ public class InteraccionJugador : MonoBehaviour
             if (encontrado != null)
             {
                 objetoAgarrado = encontrado;
-                Collider col = objetoAgarrado.GetComponent<Collider>();
-                if (col != null) col.enabled = false;
 
-                // Eliminar Rigidbody si existe para evitar conflicto con MeshCollider
-                Rigidbody rb = objetoAgarrado.GetComponent<Rigidbody>();
-                if (rb != null) Destroy(rb);
+                padreOriginal = objetoAgarrado.transform.parent;
+                posicionOriginal = objetoAgarrado.transform.position;
+                rotacionOriginal = objetoAgarrado.transform.rotation;
+
+                collidersAgarrado = objetoAgarrado.GetComponentsInChildren<Collider>(true);
+                foreach (Collider col in collidersAgarrado)
+                    col.enabled = false;
+
+                objetoAgarrado.transform.SetParent(cam.transform);
+                objetoAgarrado.transform.localPosition = new Vector3(0f, -0.3f, 0.8f);
+                objetoAgarrado.transform.localRotation = Quaternion.identity;
             }
         }
     }
@@ -108,8 +117,16 @@ public class InteraccionJugador : MonoBehaviour
     void Soltar()
     {
         if (objetoAgarrado == null) return;
-        Collider col = objetoAgarrado.GetComponent<Collider>();
-        if (col != null) col.enabled = true;
+
+        objetoAgarrado.transform.SetParent(padreOriginal);
+
+        if (collidersAgarrado != null)
+        {
+            foreach (Collider col in collidersAgarrado)
+                col.enabled = true;
+            collidersAgarrado = null;
+        }
+
         objetoAgarrado = null;
     }
 }

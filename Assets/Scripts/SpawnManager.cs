@@ -41,11 +41,6 @@ public class SpawnManager : MonoBehaviour
         cp.camaraPrimeraPersona = camaraFP;
         cp.camaraTerceraPersona = camaraTP;
 
-        // PuntoAgarre hijo de la cámara primera persona
-        GameObject puntoAgarre = new GameObject("PuntoAgarre");
-        puntoAgarre.transform.SetParent(camFP.transform);
-        puntoAgarre.transform.localPosition = new Vector3(0, -0.2f, 1.2f);
-
         // Canvas HUD
         GameObject canvasGO = new GameObject("Canvas_HUD");
         Canvas canvas = canvasGO.AddComponent<Canvas>();
@@ -56,7 +51,7 @@ public class SpawnManager : MonoBehaviour
         scaler.referenceResolution = new Vector2(1920, 1080);
         canvasGO.AddComponent<GraphicRaycaster>();
 
-        // Crosshair — línea horizontal
+        // Crosshair línea horizontal
         GameObject lineaH = new GameObject("Crosshair_H");
         lineaH.transform.SetParent(canvasGO.transform, false);
         Image imgH = lineaH.AddComponent<Image>();
@@ -66,7 +61,7 @@ public class SpawnManager : MonoBehaviour
         rtH.sizeDelta = new Vector2(16f, 2f);
         rtH.anchoredPosition = Vector2.zero;
 
-        // Crosshair — línea vertical
+        // Crosshair línea vertical
         GameObject lineaV = new GameObject("Crosshair_V");
         lineaV.transform.SetParent(canvasGO.transform, false);
         Image imgV = lineaV.AddComponent<Image>();
@@ -97,7 +92,6 @@ public class SpawnManager : MonoBehaviour
 
         // InteraccionJugador
         InteraccionJugador interaccion = jugador.AddComponent<InteraccionJugador>();
-        interaccion.puntoAgarre = puntoAgarre.transform;
         interaccion.distanciaInteraccion = 2f;
         interaccion.camaraPrimeraPersona = camaraFP;
         interaccion.camaraTerceraPersona = camaraTP;
