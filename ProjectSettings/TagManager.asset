@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Interactuable
+  - TablaInfo
   layers:
   - Default
   - TransparentFX
