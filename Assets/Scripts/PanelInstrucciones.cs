@@ -32,7 +32,7 @@ public class PanelInstrucciones : MonoBehaviour
             if (OtroPanelAbierto()) return; // evita encimar paneles
             Abrir();
         }
-        else if (panelAbierto && Input.GetKeyDown(KeyCode.Escape))
+        else if (panelAbierto && Input.GetKeyDown(KeyCode.Space))
         {
             Cerrar();
         }
@@ -150,7 +150,7 @@ public class PanelInstrucciones : MonoBehaviour
             "F — Verter el reactivo en el vaso de mezcla\n" +
             "T — Ver información de la Tabla Periódica\n" +
             "H — Volver a ver estas instrucciones\n" +
-            "Esc — Cerrar cualquier panel abierto";
+            "Espacio — Cerrar este panel";
         RectTransform controlesRT = controlesGO.GetComponent<RectTransform>();
         controlesRT.anchorMin = controlesRT.anchorMax = new Vector2(0.5f, 1f);
         controlesRT.pivot = new Vector2(0.5f, 1f);

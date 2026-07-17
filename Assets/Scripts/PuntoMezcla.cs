@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 using System.Collections.Generic;
 
 // Se pone sobre Instrumento_04 (el Vaso de Precipitado / punto de mezcla fijo).
@@ -9,6 +10,9 @@ public class PuntoMezcla : MonoBehaviour
     [Header("Configuracion de deteccion")]
     public float distanciaMaxima = 3f;
     public string tagPuntoMezcla = "PuntoMezcla";
+
+    [Header("Configuracion visual")]
+    public float tiempoVisibleTrasPanel = 10f; // segundos que se ve la mezcla despues de cerrar el panel
 
     [Header("Referencias")]
     public Renderer liquidoRenderer;
@@ -106,7 +110,7 @@ public class PuntoMezcla : MonoBehaviour
                     resultado.nombreReaccion,
                     resultado.mensajeEducativo,
                     true,
-                    () => SetColorLiquido(new Color(1f, 1f, 1f, 0f)) // al cerrar, limpia el vaso
+                    () => StartCoroutine(LimpiarVasoConRetraso()) // al cerrar, espera y luego limpia
                 );
             }
         }
@@ -118,10 +122,16 @@ public class PuntoMezcla : MonoBehaviour
                     "Sin reacción",
                     $"{a.nombre} + {b.nombre} no produce ninguna reacción conocida. Intenta con otra combinación.",
                     false,
-                    () => SetColorLiquido(new Color(1f, 1f, 1f, 0f))
+                    () => StartCoroutine(LimpiarVasoConRetraso())
                 );
             }
         }
+    }
+
+    IEnumerator LimpiarVasoConRetraso()
+    {
+        yield return new WaitForSeconds(tiempoVisibleTrasPanel);
+        SetColorLiquido(new Color(1f, 1f, 1f, 0f));
     }
 
     void SetColorLiquido(Color color)
