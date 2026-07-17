@@ -15,7 +15,7 @@ MonoBehaviour:
   reactivoA: {fileID: 11400000, guid: 6cd5967cfa0667f478ce7150527f1f2f, type: 2}
   reactivoB: {fileID: 11400000, guid: 1a26fbc3d4d8ed24493f240cff909b58, type: 2}
   nombreReaccion: "Reacci\xF3n de Efervescencia"
-  colorResultado: {r: 0.6761006, g: 1, b: 0.7177538, a: 1}
+  colorResultado: {r: 0.56289303, g: 1, b: 0.6208229, a: 1}
   produceBurbujeo: 1
   mensajeEducativo: "El bicarbonato de sodio reacciona con el \xE1cido ac\xE9tico
     liberando di\xF3xido de carbono (CO\u2082), el gas responsable de las burbujas

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: "\xC1cido Clorh\xEDdrico"
   formula: HCl
-  colorLiquido: {r: 0.62578607, g: 1, b: 0.98030454, a: 1}
+  colorLiquido: {r: 0.36163503, g: 1, b: 0.9664018, a: 1}
   estado: 0
