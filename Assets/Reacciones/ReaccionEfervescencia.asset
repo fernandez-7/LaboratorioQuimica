@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dea62a42ce484434bbe2ec33ec16b66a, type: 3}
+  m_Name: ReaccionEfervescencia
+  m_EditorClassIdentifier: 
+  reactivoA: {fileID: 11400000, guid: 6cd5967cfa0667f478ce7150527f1f2f, type: 2}
+  reactivoB: {fileID: 11400000, guid: 1a26fbc3d4d8ed24493f240cff909b58, type: 2}
+  nombreReaccion: "Reacci\xF3n de Efervescencia"
+  colorResultado: {r: 0.6761006, g: 1, b: 0.7177538, a: 1}
+  produceBurbujeo: 1
+  mensajeEducativo: "El bicarbonato de sodio reacciona con el \xE1cido ac\xE9tico
+    liberando di\xF3xido de carbono (CO\u2082), el gas responsable de las burbujas
+    que observas. Esta misma reacci\xF3n es la base del cl\xE1sico \"volc\xE1n de
+    bicarbonato\"."

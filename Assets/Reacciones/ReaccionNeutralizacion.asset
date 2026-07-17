@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dea62a42ce484434bbe2ec33ec16b66a, type: 3}
+  m_Name: ReaccionNeutralizacion
+  m_EditorClassIdentifier: 
+  reactivoA: {fileID: 11400000, guid: 4696517f800f2c94ab25e1b6a1e93ca2, type: 2}
+  reactivoB: {fileID: 11400000, guid: f15144657025cac4aa682e12186dbfda, type: 2}
+  nombreReaccion: "Neutralizaci\xF3n \xC1cido-Base"
+  colorResultado: {r: 0.09748411, g: 0.7620483, b: 1, a: 1}
+  produceBurbujeo: 0
+  mensajeEducativo: "Un \xE1cido y una base reaccionan entre s\xED formando una sal
+    y agua. Este proceso se llama neutralizaci\xF3n, y es la raz\xF3n por la que
+    se usan anti\xE1cidos para neutralizar el exceso de \xE1cido estomacal."

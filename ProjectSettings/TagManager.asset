@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interactuable
   - TablaInfo
+  - PuntoMezcla
   layers:
   - Default
   - TransparentFX

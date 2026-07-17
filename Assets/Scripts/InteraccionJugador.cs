@@ -14,6 +14,12 @@ public class InteraccionJugador : MonoBehaviour
     private GameObject objetoAgarrado = null;
     private Collider[] collidersAgarrado;
     private Transform padreOriginal;
+    private Vector3 posicionLocalOriginal;
+    private Quaternion rotacionLocalOriginal;
+
+    // Propiedad de SOLO LECTURA: permite que otros scripts (como PuntoMezcla)
+    // consulten que objeto tiene el jugador en la mano, sin poder modificarlo.
+    public GameObject ObjetoAgarrado => objetoAgarrado;
 
     Camera ObtenerCamaraActiva()
     {
@@ -88,6 +94,8 @@ public class InteraccionJugador : MonoBehaviour
             {
                 objetoAgarrado = encontrado;
                 padreOriginal = objetoAgarrado.transform.parent;
+                posicionLocalOriginal = objetoAgarrado.transform.localPosition;
+                rotacionLocalOriginal = objetoAgarrado.transform.localRotation;
 
                 // Limpiar componentes temporales de soltura anterior
                 Rigidbody rbViejo = objetoAgarrado.GetComponent<Rigidbody>();
@@ -151,6 +159,40 @@ public class InteraccionJugador : MonoBehaviour
         rb.drag = 1f;
         rb.angularDrag = 1f;
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+
+        objetoAgarrado = null;
+    }
+
+    // Se usa desde PuntoMezcla.cs cuando el jugador vierte un reactivo: el
+    // frasco se "consume" (se destruye), a diferencia de Soltar() que lo
+    // deja caer intacto sobre la mesa. No afecta la logica de Soltar().
+    public void ConsumirObjetoAgarrado()
+    {
+        if (objetoAgarrado == null) return;
+
+        Destroy(objetoAgarrado);
+        objetoAgarrado = null;
+        collidersAgarrado = null;
+    }
+
+    // Se usa desde PuntoMezcla.cs cuando el jugador vierte un reactivo en el
+    // vaso: el frasco regresa a su posicion original (estante/mesa), con su
+    // mismo liquido, en vez de destruirse -- asi puede reutilizarse cuantas
+    // veces se quiera.
+    public void DevolverObjetoAlOrigen()
+    {
+        if (objetoAgarrado == null) return;
+
+        objetoAgarrado.transform.SetParent(padreOriginal);
+        objetoAgarrado.transform.localPosition = posicionLocalOriginal;
+        objetoAgarrado.transform.localRotation = rotacionLocalOriginal;
+
+        if (collidersAgarrado != null)
+        {
+            foreach (Collider col in collidersAgarrado)
+                col.enabled = true;
+            collidersAgarrado = null;
+        }
 
         objetoAgarrado = null;
     }
