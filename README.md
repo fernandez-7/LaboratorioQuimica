@@ -228,7 +228,7 @@ Todas las fases planificadas fueron completadas y probadas de principio a fin.
 ---
 
 <div align="center">
-  <strong>🧪 Digital Twin de Laboratorio de Química</strong><br>
+  <strong>🧪 Digital Twin: Laboratorio de Química</strong><br>
   Desarrollado con Unity 2022.3 LTS · C# · Mixamo · GitHub<br><br>
   <em>"Educación de Calidad"</em>
 </div>
