@@ -63,12 +63,11 @@ En el **Colegio Privado Latino**, la enseñanza de Ciencias es principalmente te
 | **Unity** | 2022.3.62f1 LTS | Motor de videojuego |
 | **C#** | — | Lenguaje de programación |
 | **Mixamo (Adobe)** | — | Personajes y animaciones 3D |
-| **Legacy Input System** | — | Control de teclado y mouse |
 | **UnityEngine.UI (uGUI)** | — | Toda la interfaz generada por código |
 | **GitHub** | — | Control de versiones |
 
 ### Assets utilizados
-- 🧪 **Free Laboratory Pack** — Unity Asset Store (instrumentos de vidrio, shader `SBS/Mana`)
+- 🧪 **Free Laboratory Pack** — Unity Asset Store (instrumentos de vidrio)
 - 🔬 **Microscopio 3D** — Poly.pizza (modelo OBJ gratuito)
 - 📊 **Datos de la Tabla Periódica** — Adaptado de [Periodic-Table-JSON](https://github.com/Bowserinator/Periodic-Table-JSON), traducido y curado al español
 
@@ -124,7 +123,6 @@ En el **Colegio Privado Latino**, la enseñanza de Ciencias es principalmente te
 | `E` | Agarrar / Soltar un instrumento |
 | `F` | Verter el reactivo en el vaso de mezcla |
 | `T` | Ver información de la Tabla Periódica |
-| `I` | Ver inventario de reacciones descubiertas |
 | `H` | Ver instrucciones / controles del juego |
 | `M` | Abrir menú de pausa (salir, cambiar personaje, etc.) |
 | `Escape` | Cerrar cualquier panel abierto |
@@ -170,8 +168,7 @@ Assets/
 │   ├── PanelResultadoReaccion.cs      # Panel de resultado de una reacción
 │   ├── PanelInstrucciones.cs          # Panel de controles (tecla H)
 │   ├── PanelMenuPausa.cs              # Menú de pausa (tecla M)
-│   ├── GestorProgreso.cs              # Registro de reacciones descubiertas
-│   └── PanelInventario.cs             # Panel de inventario (tecla I)
+│   └── GestorProgreso.cs              # Registro de reacciones descubiertas
 ├── Textures/
 └── ThirdParty/
     └── FreeLabAssets/
@@ -191,13 +188,13 @@ Todas las fases planificadas fueron completadas y probadas de principio a fin.
 | **Fase 2** | Menú principal, selección de personaje, sistema de cámaras | ✅ Completo |
 | **Fase 3** | Sistema de interacción con objetos (agarrar / soltar) | ✅ Completo |
 | **Fase 4** | Tabla Periódica interactiva + Reacciones químicas con efectos visuales | ✅ Completo |
-| **Fase 5** | HUD / UI del juego (instrucciones, menú de pausa, inventario) | ✅ Completo |
+| **Fase 5** | HUD / UI del juego (instrucciones, menú de pausa) | ✅ Completo |
 
 ### Funcionalidades destacadas de las últimas fases
 
 - **Tabla Periódica interactiva:** los 118 elementos químicos, completamente en español, organizados en el formato estándar real (incluye la fila separada de Lantánidos/Actínidos). Cada elemento muestra nombre, símbolo, número atómico, masa, categoría, fase, descubridor y una descripción.
 - **Sistema de reacciones químicas:** el jugador agarra reactivos, los vierte en un punto de mezcla, y el sistema detecta automáticamente si la combinación produce una reacción real (por ejemplo, neutralización ácido-base o efervescencia), mostrando el resultado visual (cambio de color, burbujeo) junto con una explicación educativa. El sistema está diseñado para escalar fácilmente a más reacciones sin modificar código, solo agregando nuevos assets de datos.
-- **HUD completo:** panel de instrucciones (tecla H), menú de pausa con opciones de salir o cambiar de personaje (tecla M), e inventario de reacciones descubiertas (tecla I).
+- **HUD completo:** panel de instrucciones (tecla H), menú de pausa con opciones de salir o cambiar de personaje (tecla M).
 
 ---
 
@@ -216,7 +213,7 @@ Todas las fases planificadas fueron completadas y probadas de principio a fin.
 
 ## 🎬 Video Demo
 
-> 🎥 **Próximamente**
+> 🎥 **Enlace del video:** https://drive.google.com/file/d/1kfwHeKqBbJs_SbVo0rP3-ig4fNmcvNrc/view?usp=sharing
 
 ---
 
@@ -227,7 +224,6 @@ Todas las fases planificadas fueron completadas y probadas de principio a fin.
 - Hacer **commit en GitHub** después de cada sesión de trabajo
 - La escena principal de inicio es `MenuPrincipal`
 - Toda la interfaz (HUD, paneles, tabla periódica) se genera **por código en tiempo de ejecución**, no como objetos fijos en el Editor — esto evita inconsistencias entre escenas y facilita el mantenimiento
-- Advertencia de consola conocida y no bloqueante: *"Non-convex MeshCollider with non-kinematic Rigidbody..."* — ocurre al soltar objetos rápidamente y no afecta la jugabilidad
 
 ---
 
